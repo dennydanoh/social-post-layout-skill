@@ -1,15 +1,16 @@
 ---
-name: xiaohongshu-post-generator
-description: Use this skill when the user wants to turn a full Chinese article into a Xiaohongshu-style image carousel with a fixed light template, editable background, cover page, auto pagination, and browser-side PNG export. Also use it when editing or deploying the bundled web tool.
+name: social-post-layout-generator
+description: Use this skill when the user wants to turn long-form content into publish-ready social post cards, editorial image carousels, or poster-style pages with a fixed light template, editable background, auto pagination, and browser-side PNG export. Also use it when editing or deploying the bundled web tool.
 ---
 
-# Xiaohongshu Post Generator
+# Social Post Layout Generator
 
-This skill packages a browser-based Xiaohongshu carousel generator as reusable assets.
+This skill packages a browser-based tool for turning long-form content into publish-ready social cards, editorial image carousels, and poster-style pages.
 
 ## Use when
 
 - The user wants to turn a long Chinese article into Xiaohongshu image cards
+- The user wants to turn a long article into social post cards or editorial poster pages
 - The user wants a fixed cover page and body-page layout
 - The user wants browser-side PNG export
 - The user wants to edit, redesign, or deploy the bundled web tool
@@ -23,7 +24,7 @@ This skill packages a browser-based Xiaohongshu carousel generator as reusable a
 ## Workflow
 
 1. Keep the tool static and browser-side by default.
-2. Preserve the vertical 3:4 export ratio unless the user asks to change platform format.
+2. Preserve the default vertical 3:4 export ratio unless the user asks to change platform format.
 3. Keep the light editorial visual direction unless the user explicitly asks for a redesign.
 4. Treat the first exported page as the cover and paginate the remaining article into body pages.
 5. Prefer local persistence and client-side export unless the user explicitly asks for login, sync, or server storage.
