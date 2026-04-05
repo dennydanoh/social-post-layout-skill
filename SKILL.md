@@ -9,7 +9,6 @@ This skill packages a browser-based tool for turning long-form content into publ
 
 ## Use when
 
-- The user wants to turn a long Chinese article into Xiaohongshu image cards
 - The user wants to turn a long article into social post cards or editorial poster pages
 - The user wants a fixed cover page and body-page layout
 - The user wants browser-side PNG export
@@ -17,9 +16,9 @@ This skill packages a browser-based tool for turning long-form content into publ
 
 ## Files
 
-- `assets/xhs-post-tool/index.html`: tool UI
-- `assets/xhs-post-tool/styles.css`: visual system and layout
-- `assets/xhs-post-tool/app.js`: pagination, persistence, rendering, and PNG export
+- `assets/social-post-tool/index.html`: tool UI
+- `assets/social-post-tool/styles.css`: visual system and layout
+- `assets/social-post-tool/app.js`: pagination, persistence, rendering, and PNG export
 
 ## Workflow
 
