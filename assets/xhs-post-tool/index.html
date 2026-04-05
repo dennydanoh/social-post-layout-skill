@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>小红书图文生成器</title>
+    <meta
+      name="description"
+      content="输入标题和文章，自动分页生成适合小红书图文发布的竖版图片。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero-panel">
+        <div class="hero-copy">
+          <p class="eyebrow">Xiaohongshu Editorial Studio</p>
+          <h1>把一整篇文章，直接排成一组可以发的小红书图文。</h1>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <aside class="editor-panel">
+          <div class="panel-head">
+            <h2>内容输入</h2>
+          </div>
+
+          <label class="field">
+            <span class="field-label">标题</span>
+            <input
+              id="titleInput"
+              type="text"
+              maxlength="18"
+              placeholder="例如：一个人能不能创业，其实非常明显"
+            />
+            <span class="field-note">封面标题建议不超过 18 个字</span>
+          </label>
+
+          <label class="field">
+            <span class="field-label">导语 / 角标文案</span>
+            <input
+              id="metaInput"
+              type="text"
+              maxlength="40"
+              placeholder="这是角标示意文案"
+            />
+          </label>
+
+          <label class="field">
+            <span class="field-label">正文</span>
+            <textarea
+              id="articleInput"
+              rows="16"
+              placeholder="把完整文章粘贴进来。建议段落之间空一行，分页效果会更稳定。"
+            ></textarea>
+          </label>
+
+          <div class="action-row">
+            <button id="generateButton" class="primary-button" type="button">生成预览</button>
+            <button id="downloadAllButton" class="secondary-button" type="button">下载全部 PNG</button>
+          </div>
+
+          <div class="tips-card">
+            <h3>模板规则</h3>
+            <ul>
+              <li>默认导出比例为 3:4 竖版，适合小红书图文。</li>
+              <li>第 1 张是封面页，后续自动拆成正文页。</li>
+              <li>所有渲染都在浏览器本地完成，不上传内容。</li>
+            </ul>
+          </div>
+        </aside>
+
+        <section class="preview-panel">
+          <section id="backgroundSection" class="field field-group preview-tools">
+            <div class="preview-tools-head">
+              <h3 class="preview-tools-title">图片背景</h3>
+            </div>
+            <div class="swatch-row" id="swatchRow">
+              <button class="swatch-button active" type="button" data-color="#f7efe3" style="--swatch:#f7efe3;">暖杏</button>
+              <button class="swatch-button" type="button" data-color="#eef3f6" style="--swatch:#eef3f6;">雾蓝</button>
+              <button class="swatch-button" type="button" data-color="#f1ecf8" style="--swatch:#f1ecf8;">浅紫</button>
+              <button class="swatch-button" type="button" data-color="#faedf1" style="--swatch:#faedf1;">淡粉</button>
+              <label class="custom-color-button">
+                <span>自选颜色</span>
+                <span class="custom-color-chip">
+                  <input id="backgroundColorInput" type="color" value="#f7efe3" aria-label="自选颜色" />
+                </span>
+              </label>
+            </div>
+            <div class="upload-row">
+              <div class="upload-split-button">
+                <span class="upload-split-label">背景图</span>
+                <label class="upload-split-action">
+                  <span>上传图片</span>
+                  <input id="backgroundImageInput" type="file" accept="image/*" />
+                </label>
+              </div>
+              <button id="clearBackgroundImageButton" class="remove-button" type="button">移除背景图</button>
+            </div>
+            <div id="backgroundImageNameLabel" class="background-file-note">未选择图片</div>
+            <label class="slider-field preview-slider" for="overlayOpacityInput">
+              <span class="slider-inline-label">调节透明度</span>
+              <input id="overlayOpacityInput" type="range" min="0" max="100" step="1" value="42" />
+              <strong id="overlayOpacityValue">42%</strong>
+            </label>
+            <div class="background-note" id="backgroundStatus">当前使用纯色背景</div>
+          </section>
+
+          <div class="panel-head">
+            <h2>图片预览</h2>
+            <div id="pageMeta" class="page-meta">等待生成</div>
+          </div>
+          <div id="previewGrid" class="preview-grid"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
